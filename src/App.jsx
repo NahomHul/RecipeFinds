@@ -45,27 +45,38 @@ export default function App() {
   }, []);
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center py-8 px-4">
+      <div className="max-w-5xl mx-auto text-center mb-10">
+        <h2 className="text-3xl font-bold mb-2 text-primaryBlue">Welcome to FindRecipe</h2>
+        <p className="text-gray-600">Discover new recipes and cooking inspiration every day — especially for meat lovers!</p>
+      </div>
+
       <SearchBox onSearchClick={handleRecipeSearch} />
-      {loading && <p>Loading recipes...</p>}
-      {!loading && errorMsg && <p>{errorMsg}</p>}
+
+      {loading && <p className="mt-8 text-gray-500">Loading recipes...</p>}
+      {!loading && errorMsg && <p className="mt-8 text-red-500">{errorMsg}</p>}
       {!loading && recipeList.length > 0 && (
-        <div>
-          <h3>Search Results</h3>
-          {recipeList.map((r) => (
-            <RecipeTile key={r.idMeal} recipeInfo={r} />
-          ))}
+        <div className="max-w-6xl mx-auto mt-8">
+          <h3 className="text-xl font-semibold mb-4 text-primaryBlue">Search Results</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+            {recipeList.map((r) => (
+              <RecipeTile key={r.idMeal} recipeInfo={r} />
+            ))}
+          </div>
         </div>
       )}
-      <div>
-        <h3>Featured Meat Recipes</h3>
-        {loading && <p>Loading featured recipes...</p>}
-        {!loading && featuredRecipes.length > 0 && (
-          <div>
+
+      <div className="max-w-6xl mx-auto mt-12">
+        <h3 className="text-xl font-semibold mb-4 text-primaryBlue">🔥 Featured Meat Recipes</h3>
+        {loading && <p className="text-center text-gray-500">Loading delicious dishes...</p>}
+        {!loading && featuredRecipes.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
             {featuredRecipes.map((r) => (
               <RecipeTile key={r.idMeal} recipeInfo={r} />
             ))}
           </div>
+        ) : (
+          !loading && <p className="text-center text-gray-600">No meat recipes found 😢</p>
         )}
       </div>
     </div>
