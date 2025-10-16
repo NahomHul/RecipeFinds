@@ -1,7 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import SearchBox from "./components/SearchBox";
 import RecipeTile from "./components/RecipeTile";
 import { fetchRecipes } from "./services/recipeApi";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
 
 export default function App() {
   const [recipeList, setRecipeList] = useState([]);
@@ -44,7 +52,7 @@ export default function App() {
     loadMeatRecipes();
   }, []);
 
-  return (
+  const HomePage = () => (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center py-8 px-4">
       <div className="max-w-5xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-bold mb-2 text-primaryBlue">Welcome to FindRecipe</h2>
@@ -80,5 +88,17 @@ export default function App() {
         )}
       </div>
     </div>
+  );
+
+  return (
+    <Router>
+      <Header user={null} onLogout={() => {}} />
+      <main style={{ minHeight: "70vh", padding: "1rem" }}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </Router>
   );
 }
