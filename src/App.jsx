@@ -13,6 +13,8 @@ import RecipeDetailModal from "./components/RecipeDetailModal";
 import { fetchRecipes } from "./services/recipeApi";
 import { authService } from "./services/authService";
 import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
@@ -104,6 +106,8 @@ export default function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route
             path="/login"
             element={
