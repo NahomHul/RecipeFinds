@@ -1,16 +1,92 @@
-# React + Vite
+# 🍳 RecipeFinds
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RecipeFinds is a clean and responsive React app that helps you find and explore recipes from around the world.  
+You can search for meals, check their ingredients, read instructions, and even watch YouTube tutorials — all powered by the [TheMealDB API](https://www.themealdb.com/).
 
-Currently, two official plugins are available:
+Built with **React**, **Vite**, and **Tailwind CSS**, this project focuses on simplicity, speed, and a smooth user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+##  What You Can Do
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-  **Search Recipes** — Look up meals by name using live data from TheMealDB API  
+- **Browse Recipes** — See meal cards with the dish name, category, and cuisine  
+-  **View Details** — Get full ingredients, step-by-step instructions, and source links  
+- **Watch Tutorials** — Embedded YouTube videos for selected recipes  
+- **Handle Errors Gracefully** — Friendly messages for empty searches or failed requests  
+-  **Responsive Layout** — Works great on desktop, tablet, and mobile screens  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+##  Tech Stack
+
+| Technology | Purpose |
+|-------------|----------|
+| **React (Vite)** | Fast and modern frontend framework |
+| **Tailwind CSS** | Utility-first CSS framework for styling |
+| **React Router DOM** | For handling multiple pages and navigation |
+| **TheMealDB API** | Recipe data source |
+| **Axios / Fetch** | To make API requests |
+| *(Optional)* **Framer Motion** | Adds subtle animations and transitions |
+
+---
+
+##  Getting Started
+
+Follow these steps to set up and run the app locally 
+
+1. **Clone this repository**
+   ```bash
+   git clone https://github.com/yourusername/RecipeFinds.git
+   cd RecipeFinds
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and visit:
+   ```
+   http://localhost:5173
+   ```
+
+---
+
+##  API Reference
+
+The app uses the free [TheMealDB API](https://www.themealdb.com/api.php) for all recipe data.
+
+**Search recipes by name:**
+```
+https://www.themealdb.com/api/json/v1/1/search.php?s=<recipe_name>
+```
+
+**Example:**
+```
+https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
+```
+
+---
+
+## Notes
+
+- Input validation ensures search queries aren’t empty  
+- Displays friendly messages if no recipes match  
+- Lightweight UI built with Tailwind utilities  
+- Data loads quickly and reuses cached results for smoother navigation  
+
+---
+
+##  License
+
+This project is open source under the **MIT License**.  
+Feel free to use, modify, or expand it for your own projects.
+
+
+_Developed with ❤️ and React_
